@@ -1,0 +1,33 @@
+spring:
+  data:
+    mongodb:
+      database: instaclone_auth
+
+server:
+  port: 8081
+      
+security:
+  basic:
+    enable: false
+
+  jwt:
+    uri: /auth/**
+    header: Authorization
+    prefix: Bearer
+    expiration: 86400
+    secret: JwtSecretKey
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
+
+google:
+  recaptcha:
+    url: https://www.google.com/recaptcha/api/siteverify
+    key:
+      site: 6LcpFuUcAAAAAMVerMJUZswPGj2ES2z14IJBqJ1l
+      secret: 6LcpFuUcAAAAAEimanH1i0vcB7tIFLeD7HPdzGe5
